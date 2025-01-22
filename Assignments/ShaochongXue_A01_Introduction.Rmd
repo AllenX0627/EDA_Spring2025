@@ -1,6 +1,6 @@
 ---
 title: "Assignment 1: Introduction"
-author: "Student Name"
+author: "Shaochong Xue"
 output: pdf_document
 ---
 
@@ -23,14 +23,15 @@ Enter answers to the questions just below the >Answer: prompt.
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
 > Answer: 
+I took Betsy's statistics class last semester and used R markdown throughout the semester. I also used R for analysis in a research paper, but have never used Git.
 
 2. Are there any components of the course about which you feel confident?
 
-> Answer: 
+> Answer: I feel quite confident about R coding, especially the content from the first half of the semester, as I am familiar with most of it.
 
 3. Are there any components of the course about which you feel apprehensive?
 
-> Answer: 
+> Answer: I am not familiar with R containers and Git :(
 
 
 ## 2) GitHub
