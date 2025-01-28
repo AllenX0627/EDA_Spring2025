@@ -1,9 +1,11 @@
 ---
-title: "Assignment 2: Coding Basics"
+title: 'Assignment 2: Coding Basics'
 author: "Shaochong Xue"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 geometry: margin=2.54cm
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -36,11 +38,20 @@ rm(list = ls())
 4.  Insert comments in your code to describe what you are doing.
 
 ```{r basics 1}
-#1. 
+#1. Generating a sequence from 0 to 55, increasing by 5.
+seq55 <- seq(0, 55, by = 5) #if the sequence starts at 1 and increases by 5 , it won't reach 55
+seq55
 
-#2. 
+#2. Calculating the mean and median of the sequence.
+mean_seq <- mean(seq55)
+mean_seq
 
-#3. 
+median_seq <- median(seq55)
+median_seq
+
+#3. Comparing the mean and median.
+mean_seq > median_seq
+mean_seq == median_seq
 
 ```
 
@@ -55,39 +66,108 @@ rm(list = ls())
 8.  Label the columns of your data frame with informative titles.
 
 ```{r basics 2}
+student_names <- c("A", "B", "C", "D")                # Vector type: character
+test_scores <- c(95, 90, 75, 85)                      # Vector type: numeric
+scholarship <- c(TRUE, FALSE, TRUE, FALSE)         # Vector type: logical
 
-
+student.df <- data.frame(
+  Name = student_names, 
+  Score = test_scores, 
+  Scholarship = scholarship
+  )
+student.df
 ```
 
 9.  QUESTION: How is this data frame different from a matrix?
 
-> Answer:
+> Answer:  A data frame can have different data types and labled data, while a matrix can only have one data type for all elements. 
 
 10. Create a function with one input. In this function, use `if`...`else` to evaluate the value of the input: if it is greater than 50, print the word "Pass"; otherwise print the word "Fail". 
 
+```{r function}
+
+function1 <- function(score) {
+  if (score > 50) {
+    print("Pass")
+  } else {
+    print("Fail") 
+  }
+}
+
+function1(100)  
+function1(20)   
+
+```
+
+
 11. Create a second function that does the exact same thing as the previous one but uses `ifelse()` instead if `if`...`else `. 
 
+```{r function2}
+
+function2 <- function(score) {
+  result <- ifelse(score > 50, "Pass", "Fail") 
+  print(result) 
+}
+
+function2(100)  
+function2(20)  
+
+```
+
+
 12. Run both functions using the value 52.5 as the input
+```{r}
+function1(52.5)
+function2(52.5)
+```
+
 
 13. Run both functions using the **vector** of student test scores you created as the input. (Only one will work properly...)
 
 ```{r basics 3}
 #10. Create a function using if...else
 
+function1 <- function(score) {
+  if (score > 50) {
+    print("Pass")
+  } else {
+    print("Fail") 
+  }
+}
+
+function1(100)  
+function1(20)   
+
 #11. Create a function using ifelse()
 
+function2 <- function(score) {
+  result <- ifelse(score > 50, "Pass", "Fail") 
+  print(result) 
+}
+
+function2(100)  
+function2(20)  
+
+
 #12a. Run the first function with the value 52.5
+function1(52.5)
 
 #12b. Run the second function with the value 52.5
+function2(52.5)
+```
 
 #13a. Run the first function with the vector of test scores
+function1(student.df$Score)
 
+```{r}
 #13b. Run the second function with the vector of test scores
+function2(student.df$Score)
 ```
+
 
 14. QUESTION: Which option of `if`...`else` vs. `ifelse` worked? Why? (Hint: search the web for "R vectorization")
 
-> Answer:
+> Answer:`ifelse`worked correctly, because it can handle vector while `if`...`else` cannot. (giving the error:"the condition has length > 1") 
 
 
 **NOTE** Before knitting, you'll need to comment out the call to the function in Q13 that does not work. (A document can't knit if the code it contains causes an error!)
